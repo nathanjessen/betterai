@@ -1,10 +1,39 @@
-import { Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 
-export default {
+const meta = {
   component: Button,
-} as Meta;
+  parameters: {
+    layout: 'centered',
+  },
+} satisfies Meta<typeof Button>;
 
-export const Default = {
-  args: {},
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {
+  args: {
+    variant: 'solid',
+    color: 'slate',
+    children: 'Primary Button',
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    variant: 'outline',
+    color: 'slate',
+    children: 'Secondary Button',
+  },
+};
+
+export const White: Story = {
+  args: {
+    variant: 'solid',
+    color: 'white',
+    children: 'White Button',
+  },
+  parameters: {
+    backgrounds: { default: 'dark' },
+  },
 };

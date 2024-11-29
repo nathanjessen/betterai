@@ -1,10 +1,18 @@
-import { Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container } from './Container';
 
-export default {
+const meta = {
   component: Container,
-} as Meta;
+  parameters: {
+    layout: 'padded',
+  },
+} satisfies Meta<typeof Container>;
 
-export const Default = {
-  args: {},
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    children: 'Container content',
+  },
 };

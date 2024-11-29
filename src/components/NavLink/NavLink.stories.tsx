@@ -1,10 +1,19 @@
-import { Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { NavLink } from './NavLink';
 
-export default {
+const meta = {
   component: NavLink,
-} as Meta;
+  parameters: {
+    layout: 'centered',
+  },
+} satisfies Meta<typeof NavLink>;
 
-export const Default = {
-  args: {},
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    href: '#',
+    children: 'Navigation Link'
+  },
 };
