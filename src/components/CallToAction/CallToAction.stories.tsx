@@ -1,10 +1,16 @@
-import { Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { CallToAction } from './CallToAction';
 
-export default {
+const meta = {
   component: CallToAction,
-} as Meta;
+  parameters: {
+    layout: 'fullscreen',
+  },
+} satisfies Meta<typeof CallToAction>;
 
-export const Default = {
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {},
 };

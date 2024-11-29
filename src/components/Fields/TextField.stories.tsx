@@ -1,10 +1,36 @@
-import { Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { TextField } from './Fields';
 
-export default {
+const meta = {
   component: TextField,
-} as Meta;
+  parameters: {
+    layout: 'centered',
+  },
+} satisfies Meta<typeof TextField>;
 
-export const Default = {
-  args: {},
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    id: 'email',
+    label: 'Email address',
+    type: 'email',
+  },
+};
+
+export const Password: Story = {
+  args: {
+    id: 'password',
+    label: 'Password',
+    type: 'password',
+  },
+};
+
+export const WithClassName: Story = {
+  args: {
+    id: 'custom',
+    label: 'Custom Field',
+    className: 'max-w-sm',
+  },
 };

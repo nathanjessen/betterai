@@ -1,11 +1,17 @@
-import { Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { AuthLayout } from './AuthLayout';
 
-export default {
+const meta = {
   component: AuthLayout,
-} as Meta;
+  parameters: {
+    layout: 'fullscreen',
+  },
+} satisfies Meta<typeof AuthLayout>;
 
-export const Default = {
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     children: 'AuthLayout',
   },
